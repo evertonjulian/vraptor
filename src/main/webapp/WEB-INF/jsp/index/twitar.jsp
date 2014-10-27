@@ -7,22 +7,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function mostrarMensagem(msg){
+		alert(msg);
+	}
+</script>
 </head>
 <body>
-<h1>Lista de Tweets</h1>
+<h1>Cadastro novo Twitts</h1>
 
-	<br/>**---------------------------------------------------------**
-	<form action="${linkTo[IndexController].remover}" method="POST">   
-		<c:forEach items="${tweetList}" var="tweet">
-			<p>Autor: ${tweet.pessoa.nome}
-			<br/>Mensagem: ${tweet.mensagem}		
-			<br/>Hora: ${tweet.horaTweet}
-			<br/><br/>**---------------------------------------------------------**</p>				
-		</c:forEach>
-		<input type="submit" value="apagar">	
-	</form>
-
+	<form action="${linkTo[IndexController].salvarTweet}" method="post" onsubmit="mostrarMensagem('Tweet enviado com sucesso!!')">
+			<label>Autor:</label>		
+			<input type="text" name="tweet.autor.nome" value="${autorAnterior}"/><br/>
+			<label>Tweet:</label>		 
+			<textarea name="tweet.mensagem" rows="5" cols="40"></textarea><br/>
+			<input type="submit" value="Enviar"/>
+	</form>		
 		
-	<a href="/twiter/">Home</a>
+	<a href="/twiter/">Lista</a>
 </body>
 </html>

@@ -1,19 +1,21 @@
 package br.com.aceleradora.models;
 
-import org.joda.time.DateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Tweet {
 
 	private String mensagem;
-	private Pessoa pessoa;
-	private DateTime horaTweet;
+	private Pessoa autor;
+	private Date horaTweet;
 		
 
-	public DateTime getHoraTweet() {
+	public Date getHoraTweet() {
 		return horaTweet;
 	}
 	
-	public void setHoraTweet(DateTime horaTweet) {
+	public void setHoraTweet(Date horaTweet) {
 		this.horaTweet = horaTweet;
 	}
 	
@@ -24,13 +26,12 @@ public class Tweet {
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 	}
-	
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+
+	public Pessoa getAutor() {
+		return autor;
 	}
-	
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-	
+
+	public void setAutor(Pessoa autor) {
+		this.autor = autor;
+	}	
 }
