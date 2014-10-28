@@ -47,5 +47,8 @@ public class Pessoa {
 	public void addQuantidadeTweets() {
 		quantidadeTweets++;
 	}	
+	public void setQuantidadeTweets(int quantidadeTweets) {
+		this.quantidadeTweets = quantidadeTweets;
+	}
 	
 }

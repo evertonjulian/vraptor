@@ -16,13 +16,14 @@
 <body>
 <h1>Cadastro novo Twitts</h1>
 
-	<form action="${linkTo[IndexController].salvarTweet}" method="post" onsubmit="mostrarMensagem('Tweet enviado com sucesso!!')">
+	<form action="${linkTo[IndexController].salvar}" method="post" onsubmit="mostrarMensagem('Tweet enviado com sucesso!!')">
 			<label>Autor:</label>		
-			<input type="text" name="tweet.autor.nome" value="${autorAnterior}"/><br/>
+			<input type="text" name="tweet.autor.nome"/><br/>
 			<label>Tweet:</label>		 
 			<textarea name="tweet.mensagem" rows="5" cols="40"></textarea><br/>
+			
 			<input type="submit" value="Enviar"/>
-	</form>		
+	</form> 	
 		
 	<a href="/twiter/">Lista</a>
 </body>

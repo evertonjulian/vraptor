@@ -16,7 +16,8 @@ import br.com.caelum.vraptor.Result;
 @Resource
 public class IndexController {
 	
-	private BancoDeDados bd;	
+	private BancoDeDados bd;
+	
 
 	public IndexController(BancoDeDados bancoDeDados) {
 		this.bd = bancoDeDados;
@@ -30,23 +31,19 @@ public class IndexController {
 	@Path("/twitar")	
 	public void twitar(Result result){			
 	
-	}	
-	
-	public void salvarTweet(Tweet tweet, Result result){		
-		//Pessoa pessoa = new Pessoa(nome);
-//		
-//		if (!bd.listarPessoas().contains(nome)) {
-//			salvaPessoa(pessoa);
-//		}
-//		
-		salvar(tweet, result);
-		result.forwardTo(this).twitar(result);
 	}
-//	
-//	public void salvaPessoa(Pessoa pessoa){		
-//		bd.adicionaPessoa(pessoa);
+	
+	//public String quantidadeTweets(String autor, Result result){
+		//result.include("quantidadeTweets", bd.getQuantidadeTweets(autor));
+		//result.forwardTo(this).index(result);
+//		return bd.getQuantidadeTweets(autor);
 //	}
-//	
+	
+//	public void salvarTweet(Tweet tweet, Result result){		
+//		salvar(tweet, result);
+//		result.forwardTo(this).twitar(result);
+//	}
+	
 	public void salvar(Tweet tweet, Result result){
 		Date dt = new Date();
 		

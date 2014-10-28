@@ -25,12 +25,13 @@
 <h1>Lista de Tweets</h1>
 
 	
-				<c:forEach items="${tweetList}" var="tweet">
+				<c:forEach items="${tweetList}" var="tweet"> 
 					<br/>**---------------------------------------------------------**
-					<p>Autor: ${tweet.autor.nome}
-					<br/>Tweets postados: ${tweet.autor.quantidadeTweets}
+					<p>Autor: ${tweet.autor.nome}					
 					<br/>Mensagem: ${tweet.mensagem}		
-					<br/>Hora: ${tweet.horaTweet}				
+					<br/>Hora: ${tweet.horaTweet}	
+					<!-- AQUI tu tinha que pegar por autor. Tu tava pegando por tweet. Linha abaixo está certo agora.-->
+					<br/>Quantidade Tweets: ${tweet.autor.quantidadeTweets}			
 					
 					<form action="${linkTo[IndexController].remover}" method="post">
 					<input type="text" name="id" value="${tweetList.indexOf(tweet)}" hidden />

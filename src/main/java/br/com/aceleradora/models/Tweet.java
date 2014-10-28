@@ -9,7 +9,6 @@ public class Tweet {
 	private String mensagem;
 	private Pessoa autor;
 	private Date horaTweet;
-		
 
 	public Date getHoraTweet() {
 		return horaTweet;

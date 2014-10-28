@@ -10,67 +10,52 @@ import br.com.caelum.vraptor.ioc.SessionScoped;
 @Component
 @SessionScoped
 public class BancoDeDados {
-	
-	//private List<Pessoa> pessoas;
+
 	private List<Tweet> tweets;
 	
-	public BancoDeDados() {		
-		//pessoas = new ArrayList<Pessoa>();
+	public BancoDeDados() {
 		tweets = new ArrayList<Tweet>();
 	}	
-//
-//	public void adicionaPessoa(Pessoa pessoa) {
-//		pessoas.add(pessoa);
-//	}
-//	
-//	public List<Pessoa> listarPessoas() {
-//		return pessoas;
-//	}
-	
-	public int getQuantidadeTweets(String autor){
-		int qtdTweets = 0;
-		
-		for (Tweet tweet : tweets) {
-			if (tweet.getAutor().equals(autor)) {
-				qtdTweets++;
+
+	public void setQuantidadeTweets(String autor){	
+		int qntde = 0;
+		for (Tweet tweet : tweets) {			
+			if (tweet.getAutor().getNome().equals(autor)) {
+				tweet.getAutor().addQuantidadeTweets();	
+				qntde = tweet.getAutor().getQuantidadeTweets();	
 			}
-		}
-		
-		return qtdTweets;
+		}	
+		for (Tweet tweet : tweets) {			
+			if (tweet.getAutor().getNome().equals(autor)) {
+				tweet.getAutor().setQuantidadeTweets(qntde);	
+			}
+		}		
 	}
 	
-	public void adicionaTweet(Tweet tweet){		
-		tweets.add(tweet);		
+	public void adicionaTweet(Tweet tweet){	
+		
+		tweets.add(0, tweet);	
+		//AQUI
+		setQuantidadeTweets(tweets.get(0).getAutor().getNome());
 	}
 	
 	public void removeTweet(int id){
-		//pessoa.getTweets().remove(id);
 		tweets.remove(id);
 	}
 	
 	public List<Tweet> todosTweets(){
-//		List<Tweet> tweets = new ArrayList<Tweet>();
-//		for (Pessoa pessoa : pessoas) {
-//			tweets.addAll(pessoa.getTweets());			
-//		}
-//		
-//		return ordenarPorData(tweets);
-		
 		return tweets;
 	}
 	
 	public void editaTweet(int id, String mensagem) {
-		Date dt = new Date();		
-		
-//		pessoa.getTweets().get(id).setMensagem(mensagem);
-//		pessoa.getTweets().get(id).setHoraTweet(dt);		
+		Date dt = new Date();
 		
 		tweets.get(id).setMensagem(mensagem);
 		tweets.get(id).setHoraTweet(dt);
 	}
 	
 	public List<Tweet> ordenarPorData(List<Tweet> tweets){
-		List<Tweet> listaOrdenada = new ArrayList<Tweet>();
+		List<Tweet> listaOrdenada = tweets;
 		Tweet aux;
 		Tweet aux2;
 		
